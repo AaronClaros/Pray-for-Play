@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UI;
@@ -66,14 +66,30 @@ namespace _FinalAssets{
 
 		void CompareText(){
 			if (actualTarget != null){
-				var enemy = actualTarget.GetComponent<EnemyScript> ();
-				if (InvertText(enemy.eName.ToUpper()) == sText.ToUpper()) {
-					Debug.Log (sText);
-					if (!enemy.dead_flag){
-						StopAllCoroutines();
-						StartCoroutine(enemy.DeadOnce());
-					}
-				}
+                var enemy = actualTarget.GetComponent<EnemyScript>();
+                if (enemy != null) {
+                    if (InvertText(enemy.eName.ToUpper()) == sText.ToUpper())
+                    {
+                        Debug.Log(sText);
+                        if (!enemy.dead_flag)
+                        {
+                            StopAllCoroutines();
+                            StartCoroutine(enemy.DeadOnce());
+                        }
+                    }
+                }
+                else {
+                    var boss = actualTarget.GetComponent<BossScript>();
+                    if (InvertText(boss.eName.ToUpper()) == sText.ToUpper())
+                    {
+                        Debug.Log(sText);
+                        if (!boss.dead_flag)
+                        {
+                            StopAllCoroutines();
+                            StartCoroutine(boss.DeadOnce());
+                        }
+                    }
+                }
 			}
 		}
 

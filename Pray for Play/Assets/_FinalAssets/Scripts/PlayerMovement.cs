@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace _FinalAssets{
@@ -21,7 +21,7 @@ namespace _FinalAssets{
 
 
 
-		private bool spelling_flag;
+		public bool spelling_flag;
 		private PlayerActions paRef;
 
 		//private bool flip_flag;
